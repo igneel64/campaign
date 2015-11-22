@@ -4,7 +4,7 @@ source 'https://rubygems.org'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.1.8'
 # Use sqlite3 as the database for Active Record
-gem 'sqlite3'
+
 gem 'sass-rails', '~> 5.0', '>= 5.0.4'
 # Use SCSS for stylesheets
 gem 'figaro'
@@ -39,7 +39,9 @@ gem 'createsend'
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem 'tzinfo-data', platforms: [:mingw, :mswin]
-
+group :development, :test do
+gem 'sqlite3-ruby'
+end
 group :production do
 gem 'pg', '0.17.1'
 gem 'rails_12factor', '0.0.2'
