@@ -1,0 +1,6 @@
+$("#mynewuser").modal('hide');
+$(".user_name").val(' ');
+$(".user_email").val(' ');
+
+$("#container_users").prepend('<%= j render @user %>');
+$("#post_<%= @user.id %>").hide().fadeIn(1000);

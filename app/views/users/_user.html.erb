@@ -1,0 +1,22 @@
+<div class="col-md-4 blog-main box text-center" id="user_<%=user.id%>">
+     
+      <div class="panel panel-info">
+		  <div class="panel-heading">
+            <h3 class="panel-title"><%=user.name%> </h3>
+            <h4><%=user.email%></h4>
+		  </div>
+
+		  <div class="panel-body">
+		    <div style="color: #3BB2D6;">Subscribed <%=time_ago_in_words(user.created_at)%> ago</div>
+		    <br>
+            <div class="btn-group" role="group" aria-label="...">
+              <%= link_to 'Unsub', user, method: :delete, class:"btn btn-danger", remote: true%>
+            </div>
+
+		  </div>
+		</div>
+
+		
+
+
+</div>

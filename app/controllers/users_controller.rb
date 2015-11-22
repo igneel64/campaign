@@ -5,6 +5,7 @@ class UsersController < ApplicationController
   # GET /users.json
   def index
     @users = User.all
+    @user=User.new
     list_id= 'b99c3718609f2c545912b7d1ea7b12d6'
     date=''
     page=1
@@ -23,17 +24,6 @@ class UsersController < ApplicationController
       @user.email=dat[:EmailAddress]
       @user.save
     end
-    
-    
-
-
-
-
-
-    #cs = CreateSend::List.get({:api_key => ENV['8b5b621996e34dd3e919bfb31499e590']}, ENV['CM_LIST_ID'])
-    #@lists.each do |list|
-     #@data=list.methods
-     #active(date="",page = 1, page_size= 100, order_field="email", order_direction="asc").to_json
     
 
   end
@@ -61,9 +51,11 @@ class UsersController < ApplicationController
       if @user.save
         format.html { redirect_to @user, notice: 'User was successfully created.' }
         format.json { render :show, status: :created, location: @user }
+        format.js
       else
         format.html { render :new }
         format.json { render json: @user.errors, status: :unprocessable_entity }
+        format.js
       end
     end
   end
@@ -89,8 +81,10 @@ class UsersController < ApplicationController
     respond_to do |format|
       format.html { redirect_to users_url, notice: 'User was successfully destroyed.' }
       format.json { head :no_content }
+      format.js
     end
   end
+
 
   private
     # Use callbacks to share common setup or constraints between actions.
