@@ -6,7 +6,7 @@ class UsersController < ApplicationController
   # GET /users.json
   def index
     #User.delete_all
-    @user=User.new
+    
     @data=getdata(@data)
 
     @data.each do |dat|

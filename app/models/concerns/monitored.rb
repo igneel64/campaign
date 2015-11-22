@@ -13,9 +13,13 @@ module Monitored
   end
 
  def remove_subscriber_from_list
-  cs = CreateSend::Client.new({:api_key=>ENV["cs_key"]},ENV["cs_id"])
-  CreateSend::Subscriber.new({:api_key=>ENV["cs_key"]},ENV["cs_list_id"],self.email).unsubscribe
- end
+  
+   cs = CreateSend::Client.new({:api_key=>ENV["cs_key"]},ENV["cs_id"])
+   CreateSend::Subscriber.new({:api_key=>ENV["cs_key"]},ENV["cs_list_id"],self.email).unsubscribe
+   
+
+ 
+end
 
 end
   
