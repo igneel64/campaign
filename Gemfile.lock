@@ -50,6 +50,8 @@ GEM
     execjs (2.6.0)
     faraday (0.9.2)
       multipart-post (>= 1.2, < 3)
+    figaro (1.1.1)
+      thor (~> 0.14)
     hashie (3.4.3)
     hike (1.2.3)
     httparty (0.13.7)
@@ -147,6 +149,7 @@ DEPENDENCIES
   coffee-rails (~> 4.0.0)
   coffee-script-source (= 1.8.0)
   createsend
+  figaro
   jbuilder (~> 2.0)
   jquery-rails
   omniauth-createsend

@@ -16,7 +16,7 @@ html,body {
 }
 
 div.panel.panel-info{
-	font-size: 1.4em;
+	font-size: 1.3em;
 }
 
 .container {
@@ -52,3 +52,10 @@ h3.panel-title{
 	background-color: rgba(51, 122, 183, 0.82);
     border-color: rgba(46, 140, 164, 0.5);
 }
+
+.navbar-brand > img {
+    
+    margin: -8px auto;
+    height: 33px;
+    width: 63px;
+    }

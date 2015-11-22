@@ -4,16 +4,16 @@ class UsersController < ApplicationController
   # GET /users
   # GET /users.json
   def index
-    @users = User.all
+    User.delete_all
     @user=User.new
-    list_id= 'b99c3718609f2c545912b7d1ea7b12d6'
+    
     date=''
     page=1
     page_size=100
     order_field='email'
     order_direction='asc'
-    auth={:password=>'x', :username=>'8b5b621996e34dd3e919bfb31499e590'}
-    @blah = HTTParty.get("https://api.createsend.com/api/v3.1/lists/#{list_id}/active.json?date=#{date}&page=#{page}&pagesize=#{page_size}&orderfield=#{order_field}&orderdirection=#{order_direction}", 
+    auth={:password=>'x', :username=>ENV["cs_key"]}
+    @blah = HTTParty.get("https://api.createsend.com/api/v3.1/lists/#{ENV["cs_list_id"]}/active.json?date=#{date}&page=#{page}&pagesize=#{page_size}&orderfield=#{order_field}&orderdirection=#{order_direction}", 
                      :basic_auth => auth, :verify => false).as_json
     @ready= JSON.parse( @blah.to_json, {:symbolize_names => true} )
     @data=@ready[:Results]
@@ -25,7 +25,7 @@ class UsersController < ApplicationController
       @user.save
     end
     
-
+    @users = User.all
   end
 
   # GET /users/1
